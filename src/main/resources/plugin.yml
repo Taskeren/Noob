@@ -1,0 +1,4 @@
+name: Noob
+version: ${project.version}
+main: cn.taskeren.noob.NoobPlugin
+api-version: 1.13
