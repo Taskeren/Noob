@@ -2,3 +2,12 @@ name: Noob
 version: ${project.version}
 main: cn.taskeren.noob.NoobPlugin
 api-version: 1.13
+author: Taskeren
+website: https://github.com/nitu2003/Noob
+prefix: Noob!
+commands:
+  noob:
+    description: Nooblize your item.
+    permission: noob
+    permission-message: Noob!
+    usage: "/noob"

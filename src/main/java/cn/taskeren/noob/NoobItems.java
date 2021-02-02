@@ -13,6 +13,7 @@ import java.util.List;
 
 import static cn.taskeren.noob.NoobConst.*;
 
+// TODO: Optimized Atrribute Random Algorithm
 @SuppressWarnings({"ConstantConditions", "WeakerAccess"})
 public class NoobItems {
 
@@ -133,10 +134,6 @@ public class NoobItems {
 
 	public static ItemStack createArtifact(ItemStack item) {
 		final ItemMeta meta = item.getItemMeta();
-
-		// 随机附魔
-		// TODO: Add Enchants
-		//meta.addEnchant(Enchantment.DURABILITY, 10, true);
 
 		// 随机属性
 		final Material material = item.getType();

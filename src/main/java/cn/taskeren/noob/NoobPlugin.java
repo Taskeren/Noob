@@ -7,7 +7,6 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.Chest;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.entity.Explosive;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Wither;
 import org.bukkit.event.Event;
@@ -40,6 +39,8 @@ public final class NoobPlugin extends JavaPlugin implements Listener {
 			rand = new NoobRandom();
 		else
 			rand = new NoobRandom(seed);
+
+		getServer().getPluginCommand("noob").setExecutor(new NoobCommand());
 	}
 
 	@Override
@@ -59,11 +60,19 @@ public final class NoobPlugin extends JavaPlugin implements Listener {
 	public void onDeath(EntityDeathEvent event) {
 		if(event.getEntity() instanceof Wither) {
 			int r = rand.nextInt(100);
+
+			int drop = 0;
 			// 掉落 0-2 个
 			if(r > 75)
-				event.getDrops().add(NoobItems.WITHER_STAR);
+				drop++;
 			if(r > 95)
-				event.getDrops().add(NoobItems.WITHER_STAR);
+				drop++;
+			if(drop != 0) {
+				getServer().broadcastMessage(drop+" NoobStar(s) have just droped!");
+				for(int k=0; k < drop; k++) {
+					event.getDrops().add(NoobItems.WITHER_STAR);
+				}
+			}
 		}
 	}
 
