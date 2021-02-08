@@ -25,10 +25,17 @@ public class NoobCommand implements CommandExecutor {
 			}
 		}
 		else if(sender instanceof Player) {
-			nooblize((Player) sender);
+			if(!isItemNooblized((Player) sender)) {
+				nooblize((Player) sender);
+			}
 			return true;
 		}
 		return false;
+	}
+
+	private static boolean isItemNooblized(Player player) {
+		//noinspection ConstantConditions
+		return player.getInventory().getItemInMainHand().getItemMeta().hasLore();
 	}
 
 	private static void nooblize(Player player) {
